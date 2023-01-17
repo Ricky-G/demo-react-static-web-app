@@ -12,7 +12,7 @@ function TodoPage() {
     }, []);
 
     const getTodos = async () => {
-        const result = await axios.get('https://localhost:44373/api/Todo');
+        const result = await axios.get('https://todoapi-app-20230117134557.lemontree-7f523f94.eastus.azurecontainerapps.io/api/Todo');
         setTodos(result.data);
     }
 
@@ -25,7 +25,7 @@ function TodoPage() {
     }
 
     const createTodo = async () => {
-      await axios.post('https://localhost:44373/api/Todo', {
+      await axios.post('https://todoapi-app-20230117134557.lemontree-7f523f94.eastus.azurecontainerapps.io/api/Todo', {
           description: newTodo.description,
           isComplete: false
       });
@@ -33,7 +33,7 @@ function TodoPage() {
   }
   
   const updateTodo = async (todoId) => {
-      await axios.put(`https://localhost:44373/api/Todo/${todoId}`, {
+      await axios.put(`https://todoapi-app-20230117134557.lemontree-7f523f94.eastus.azurecontainerapps.io/api/Todo/${todoId}`, {
           id: selectedTodo.id,
           description: selectedTodo.description,
           isComplete: selectedTodo.isComplete
@@ -43,7 +43,7 @@ function TodoPage() {
   
 
     const getTodo = async (todoId) => {
-        const result = await axios.get(`https://localhost:44373/api/Todo/${todoId}`);
+        const result = await axios.get(`https://todoapi-app-20230117134557.lemontree-7f523f94.eastus.azurecontainerapps.io/api/Todo/${todoId}`);
         setSelectedTodo(result.data);
     }
 
@@ -51,7 +51,7 @@ function TodoPage() {
       <div className="todo-page">
         <h1>Todo List</h1>
         <div>            
-            <h2>All Todos</h2>
+            <h2>All Todos V2</h2>
             <ul className="todo-list">
                 {todos.map((todo) => (
                     <li className="todo-item" key={todo.id}>
